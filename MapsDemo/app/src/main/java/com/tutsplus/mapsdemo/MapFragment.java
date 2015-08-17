@@ -92,12 +92,12 @@ public class MapFragment extends SupportMapFragment implements GoogleApiClient.C
                 .tilt( 0.0f )
                 .build();
 
-        getMap().animateCamera(CameraUpdateFactory.newCameraPosition(position), null);
+        getMap().animateCamera( CameraUpdateFactory.newCameraPosition( position ), null );
 
         getMap().setMapType( MAP_TYPES[curMapTypeIndex] );
         getMap().setTrafficEnabled( true );
-        getMap().setMyLocationEnabled(true);
-        getMap().getUiSettings().setZoomControlsEnabled(true);
+        getMap().setMyLocationEnabled( true );
+        getMap().getUiSettings().setZoomControlsEnabled( true );
     }
 
     @Override
@@ -116,9 +116,9 @@ public class MapFragment extends SupportMapFragment implements GoogleApiClient.C
 
     @Override
     public void onConnected(Bundle bundle) {
-        mCurrentLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
+        mCurrentLocation = LocationServices.FusedLocationApi.getLastLocation( mGoogleApiClient );
 
-        initCamera(mCurrentLocation);
+        initCamera( mCurrentLocation );
     }
 
     @Override
@@ -131,7 +131,7 @@ public class MapFragment extends SupportMapFragment implements GoogleApiClient.C
         //Create a default location if the Google API Client fails. Placing location at Googleplex
         mCurrentLocation = new Location( "" );
         mCurrentLocation.setLatitude( 37.422535 );
-        mCurrentLocation.setLongitude(-122.084804);
+        mCurrentLocation.setLongitude( -122.084804 );
         initCamera(mCurrentLocation);
     }
 
@@ -149,11 +149,11 @@ public class MapFragment extends SupportMapFragment implements GoogleApiClient.C
     @Override
     public void onMapClick(LatLng latLng) {
 
-        MarkerOptions options = new MarkerOptions().position(latLng);
-        options.title( getAddressFromLatLng(latLng) );
+        MarkerOptions options = new MarkerOptions().position( latLng );
+        options.title( getAddressFromLatLng( latLng ) );
 
-        options.icon(BitmapDescriptorFactory.defaultMarker());
-        getMap().addMarker(options);
+        options.icon( BitmapDescriptorFactory.defaultMarker( ) );
+        getMap().addMarker( options );
     }
 
     @Override
@@ -161,7 +161,8 @@ public class MapFragment extends SupportMapFragment implements GoogleApiClient.C
         MarkerOptions options = new MarkerOptions().position( latLng );
         options.title( getAddressFromLatLng(latLng) );
 
-        options.icon( BitmapDescriptorFactory.fromBitmap(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher)) );
+        options.icon( BitmapDescriptorFactory.fromBitmap(
+                BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher ) ) );
 
         getMap().addMarker(options);
     }
@@ -207,7 +208,9 @@ public class MapFragment extends SupportMapFragment implements GoogleApiClient.C
         GroundOverlayOptions options = new GroundOverlayOptions();
         options.position(location, width, height);
 
-        options.image(BitmapDescriptorFactory.fromBitmap(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher)));
+        options.image( BitmapDescriptorFactory
+                .fromBitmap( BitmapFactory
+                    .decodeResource( getResources(), R.mipmap.ic_launcher ) ) );
         getMap().addGroundOverlay(options);
     }
 

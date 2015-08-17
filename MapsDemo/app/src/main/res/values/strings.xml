@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">MapsDemo</string>
 
-    <string name="google_api_key">AIzaSyA5F3MRWD3C9nn30-0wGrLOdGUU7soXzWE</string>
+    <string name="google_api_key"></string>
 
     <string name="action_clear">Clear</string>
     <string name="action_circle">Draw Circle</string>
